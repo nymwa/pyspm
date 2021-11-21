@@ -80,5 +80,11 @@ def encode_inputs(encoder):
 def main():
     args = parse_args()
     encoder = make_encoder(args)
-    encode_inputs(encoder)
+
+    try:
+        encode_inputs(encoder)
+    except BrokenPipeError:
+        pass
+    except KeyboardInterrupt:
+        pass
 

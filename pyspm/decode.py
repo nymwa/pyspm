@@ -52,5 +52,11 @@ def decode_inputs(decoder):
 def main():
     args = parse_args()
     decoder = make_decoder(args)
-    decode_inputs(decoder)
+
+    try:
+        decode_inputs(decoder)
+    except BrokenPipeError:
+        pass
+    except KeyboardInterrupt:
+        pass
 
